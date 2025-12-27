@@ -87,7 +87,7 @@
 
         <activity
             android:name=".PcView"
-            aandroid:exported="true"
+            android:exported="true"
             android:resizeableActivity="true"
             android:screenOrientation="landscape"
             android:enableOnBackInvokedCallback="true"

@@ -19,11 +19,18 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew assembleRelease
+      - name: Build Debug APK
+        run: ./gradlew assembleNonRootDebug
 
-      - name: Upload APK
+      - name: Sign APK (The Fix)
+        run: |
+          # Finds the APK and signs it with a debug key
+          APK_PATH=$(find app/build/outputs/apk -name "*debug.apk" | head -n 1)
+          # We use the built-in debug keystore that comes with the Android SDK
+          apksigner sign --ks $ANDROID_HOME/build-tools/34.0.0/debug.keystore --ks-pass pass:android --key-pass pass:android --out app-signed.apk "$APK_PATH"
+
+      - name: Upload Signed APK
         uses: actions/upload-artifact@v4
         with:
           name: Moonlight-Quest-Fixed
-          path: "**/*.apk"
+          path: app-signed.apk

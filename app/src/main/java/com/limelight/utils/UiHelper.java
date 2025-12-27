@@ -33,6 +33,10 @@ public class UiHelper {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             GameManager gameManager = context.getSystemService(GameManager.class);
 
+            if (gameManager == null) {
+                return;
+            }
+
             if (streaming) {
                 gameManager.setGameState(new GameState(false, interruptible ? GameState.MODE_GAMEPLAY_INTERRUPTIBLE : GameState.MODE_GAMEPLAY_UNINTERRUPTIBLE));
             }

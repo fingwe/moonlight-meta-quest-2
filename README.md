@@ -1,4 +1,5 @@
-# Moonlight Android
+# Moonlight Android Fork
+# Moonlight Meta Quest 2 ( Unofficial )
 
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/232a8tadrrn8jv0k/branch/master?svg=true)](https://ci.appveyor.com/project/cgutman/moonlight-android/branch/master)
 [![Translation Status](https://hosted.weblate.org/widgets/moonlight/-/moonlight-android/svg-badge.svg)](https://hosted.weblate.org/projects/moonlight/moonlight-android/)
@@ -33,3 +34,35 @@ You can follow development on our [Discord server](https://moonlight-stream.org/
 
 Moonlight is the work of students at [Case Western](http://case.edu) and was
 started as a project at [MHacks](http://mhacks.org).
+
+## Changes in the fork
+
+# app/src/main/AndroidManifest.xml
+
+Fix to start the app in landscape mode
+
+Changed for
+- .PcView
+- .ShortcutTrampoline
+- .AppView
+- .Game
+
+<activity
+    android:exported="true"
+    android:resizeableActivity="true"
+    android:screenOrientation="landscape" 
+    ... />
+
+# app/src/main/java/com/limelight/utils/UiHelper.java
+
+Fix to prevent the app from crashing because Meta Quest 2 OS don't have the GameManager dependencies despite being an android version sufficient for having it.
+Meta removed this from the Meta Quest OS.
+
+private static void setGameModeStatus
+...
+if (gameManager == null) {
+                return;
+            }
+...
+
+So if gameManager variable is null, just return instead of crashing.

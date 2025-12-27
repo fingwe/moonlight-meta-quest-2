@@ -87,8 +87,9 @@
 
         <activity
             android:name=".PcView"
-            android:exported="true"
+            aandroid:exported="true"
             android:resizeableActivity="true"
+            android:screenOrientation="landscape"
             android:enableOnBackInvokedCallback="true"
             android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection">
 
@@ -110,6 +111,7 @@
             android:noHistory="true"
             android:exported="true"
             android:resizeableActivity="true"
+            android:screenOrientation="landscape"
             android:enableOnBackInvokedCallback="true"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection">
             <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="system-default" />
@@ -117,7 +119,9 @@
         </activity>
         <activity
             android:name=".AppView"
+            android:exported="true"
             android:resizeableActivity="true"
+            android:screenOrientation="landscape"
             android:enableOnBackInvokedCallback="true"
             android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection">
             <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="system-default" />
@@ -147,7 +151,9 @@
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
             android:noHistory="true"
             android:supportsPictureInPicture="true"
+            android:exported="true"
             android:resizeableActivity="true"
+            android:screenOrientation="landscape"
             android:enableOnBackInvokedCallback="false"
             android:launchMode="singleTask"
             android:excludeFromRecents="true"

@@ -22,12 +22,14 @@ jobs:
       - name: Build Debug APK
         run: ./gradlew assembleNonRootDebug
 
-      - name: Sign APK (The Fix)
+      - name: Sign APK (Direct Path Fix)
         run: |
-          # Finds the APK and signs it with a debug key
+          # Locate the APK first
           APK_PATH=$(find app/build/outputs/apk -name "*debug.apk" | head -n 1)
-          # We use the built-in debug keystore that comes with the Android SDK
-          apksigner sign --ks $ANDROID_HOME/build-tools/34.0.0/debug.keystore --ks-pass pass:android --key-pass pass:android --out app-signed.apk "$APK_PATH"
+          
+          # Use the absolute path to apksigner in the GitHub runner
+          # We use build-tools version 34.0.0 which is standard on ubuntu-latest
+          $ANDROID_HOME/build-tools/34.0.0/apksigner sign --ks $ANDROID_HOME/build-tools/34.0.0/debug.keystore --ks-pass pass:android --key-pass pass:android --out app-signed.apk "$APK_PATH"
 
       - name: Upload Signed APK
         uses: actions/upload-artifact@v4

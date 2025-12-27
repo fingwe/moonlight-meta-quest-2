@@ -1,6 +1,12 @@
 # Moonlight Android Fork
 # Moonlight Meta Quest 2 ( Unofficial )
 
+Notice, I don't plan on maintaining this branch,  i just forked it for my needs. So don't bother opening pull request and such.
+
+I may , or may not pull again from the main moonlight repo. 
+
+You are free to refork this and do what you want as long as it respect original repo terms and conditions.
+
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/232a8tadrrn8jv0k/branch/master?svg=true)](https://ci.appveyor.com/project/cgutman/moonlight-android/branch/master)
 [![Translation Status](https://hosted.weblate.org/widgets/moonlight/-/moonlight-android/svg-badge.svg)](https://hosted.weblate.org/projects/moonlight/moonlight-android/)
 

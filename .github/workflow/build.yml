@@ -26,4 +26,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Moonlight-Quest-Fixed
-          path: app/build/outputs/apk/nonRootDebug/*.apk
+          path: "**/*.apk"
